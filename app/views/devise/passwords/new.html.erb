@@ -1,8 +1,8 @@
 <div class="contenedor-formularios">
     <ul class="contenedor-tabs">
         <li class="tab tab-segunda active"><a style="font-size: 18px;" href="#iniciar-sesion">Recuperación de contraseña</a></li>
-        <%= link_to "Volver", root_path, style: "font-size: 18px;" %>
-        <li class="tab tab-primera">
+        <li class="tab tab-primera" style="display: none">
+          <!-- <%= link_to "Volver", root_path, style: "font-size: 18px;" %> -->
 
         </li>
     </ul>
@@ -26,7 +26,6 @@
         <!-- Registrarse -->
         <div id="registrarse">
             <h1>Registrarse</h1>
-            <%= render "/devise/registrations/new" %>
         </div>
   </div>
 </div>

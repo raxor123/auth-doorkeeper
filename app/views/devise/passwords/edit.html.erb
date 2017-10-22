@@ -1,14 +1,14 @@
 
 <div class="contenedor-formularios">
     <ul class="contenedor-tabs">
-        <li class="tab tab-segunda active"><a style="font-size: 18px;" href="#iniciar-sesion">Cambio de contraseña</a></li>
+        <li class="tab tab-segunda active"><a style="font-size: 18px;" href="#iniciar-sesion">Cambio de contraseña</a</li>
         <li class="tab tab-primera" style="display: none">
         </li>
     </ul>
     <div class="contenido-tab">
         <div id="iniciar-sesion">
 
-          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
           <%= devise_error_messages! %>
           <%= f.hidden_field :reset_password_token %>
 
