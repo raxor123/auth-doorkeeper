@@ -1,16 +1,32 @@
-<h2>Forgot your password?</h2>
+<div class="contenedor-formularios">
+    <ul class="contenedor-tabs">
+        <li class="tab tab-segunda active"><a style="font-size: 18px;" href="#iniciar-sesion">Recuperación de contraseña</a></li>
+        <%= link_to "Volver", root_path, style: "font-size: 18px;" %>
+        <li class="tab tab-primera">
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+        </li>
+    </ul>
+    <div class="contenido-tab">
+        <div id="iniciar-sesion">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+            <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+              <%= devise_error_messages! %>
+
+
+              <div class="contenedor-input">
+                  <label>
+                      Email <span class="req">*</span>
+                  </label>
+                <%= f.email_field :email, autofocus: true %>
+            </div>
+              <%= f.submit "Enviarme las instrucciones", id:"submit-pass"%>
+            <% end %>
+        </div>
+
+        <!-- Registrarse -->
+        <div id="registrarse">
+            <h1>Registrarse</h1>
+            <%= render "/devise/registrations/new" %>
+        </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

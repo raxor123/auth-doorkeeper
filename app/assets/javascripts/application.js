@@ -13,18 +13,39 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require turbolinks
 //= require_tree .
 
 
 $(document).ready(function(){
 
 
-  $("#user_email").val("admin@grupoleiros.com");
-  $("#user_password").val("123456789");
+  // $("#user_email").val("admin@grupoleiros.com");
+  // $("#user_password").val("123456789");
 
   $(".list-group li").click(function(){
         $("#user_email").val($(this).text());
-        $("form").submit();
+        $("#user_password").val("123456789");
+        $("#new_user").submit();
   });
+});
+
+
+$(document).ready(function(){
+$("label").addClass("active highlight");
+
+    $(".tab a").on("click", function (e) {
+
+        e.preventDefault();
+
+        $(this).parent().addClass("active");
+        $(this).parent().siblings().removeClass("active");
+
+        target = $(this).attr("href");
+
+        $(".contenido-tab > div").not(target).hide();
+
+        $(target).fadeIn(600);
+
+    });
+
 });

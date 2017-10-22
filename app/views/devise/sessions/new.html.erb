@@ -1,114 +1,55 @@
 
-<div class="page-wrap">
+   <!-- Formularios -->
+    <div class="contenedor-formularios">
+        <!-- Links de los formularios -->
+        <ul class="contenedor-tabs">
+            <li class="tab tab-segunda active"><a href="#iniciar-sesion">Iniciar Sesión</a></li>
+            <li class="tab tab-primera"><a href="#registrarse">Registrarse</a></li>
+        </ul>
 
-<header class="navbar navbar-fixed-top navbar-empty">
-<div class="container">
-<div class="center-logo">
-<img src="/Logo_Leiros_ICONO_AVATAR.jpg" alt="Logo leiros icono avatar">
-</div>
-</div>
-</header>
+        <!-- Contenido de los Formularios -->
+        <div class="contenido-tab">
+            <!-- Iniciar Sesion -->
+            <div id="iniciar-sesion">
+                <h1>Iniciar Sesión</h1>
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                  <br>
+                  <div class="contenedor-input" >
+                        <label>
+                            Usuario <span class="req">*</span>
+                        </label>
+                    <%= f.email_field :email, autofocus: true, id: "user_email" %>
+                  </div>
 
-
-
-  <div class="container navless-container">
-    <div class="content">
-      <div class="flash-container flash-container-page">
-      </div>
-      <div class="row">
-        <div class="col-sm-4">
-          <img src="/Logo_Leiros_ICONO_AVATAR.jpg" alt="Logo leiros icono avatar" class="col-xs-12" style="position: relative; bottom:39px; left:47%">
-        </div>
-        <div class="col-sm-5 pull-right new-session-forms-container" style="position: relative !important; left: 25% !important;">
-          <div>
-          <ul class="nav-links new-session-tabs nav-tabs" role="tablist">
-            <li class="active" role="presentation">
-              <a data-toggle="tab" href="#login-pane"  role="tab">Iniciar sesion</a>
-            </li>
-            <li class="col-sm-6" role="presentation">
-              <%= link_to "Ir al elearning", "http://localhost:3000" , class: "btn btn-info"%>
-
-            </li>
-            <li role="presentation">
-            </li>
-          </ul>
-
-          <div class="tab-content">
-            <div class="login-box tab-pane active" id="login-pane" role="tabpanel">
-              <div class="login-body">
-                <%= form_for(resource, as: resource_name, url: session_path(resource_name), class:"form-group new_user gl-show-field-errors form") do |f| %>
-                <br>
-                <div class="form-group" >
-                  <%= f.label :email %><br />
-                  <%= f.email_field :email, autofocus: true,class:' form-control top', id: "user_email" %>
+                  <div class="contenedor-input">
+                    <label>
+                        Contraseña <span class="req">*</span>
+                    </label>
+                  <%= f.password_field :password, autocomplete: "off"%>
                 </div>
-              <div class="form-group">
-                <%= f.label :password %><br />
-                <%= f.password_field :password, autocomplete: "off",class:' form-control bottom' %>
+                  <p class="forgot"><a href="/users/password/new">Se te olvidó la contraseña?</a></p>
+                  <input type="submit" class="button button-block" value="Iniciar Sesión">
 
-              </div>
-              <div class="remember-me checkbox">
-                <label for="user_remember_me">
-                  <input name="user[remember_me]" value="0" type="hidden"><input value="1" name="user[remember_me]" id="user_remember_me" type="checkbox">
-                  <span>Recuerdame</span>
-                </label>
-                <div class="pull-right forgot-password">
-                  <a href="/users/password/new">¿Olvidaste tu contraseña?</a>
-                </div>
-              </div>
-              <div class="submit-container move-submit-down col-sm-12 " style="margin-bottom: 20px;">
-                <%= f.submit "Log in" , class: "btn btn-success col-sm-7 offset-sm-3" %>
-              </div>
-              <br>
-
-              </div>
             <% end %>
             </div>
-          </div>
 
-          <div class="clearfix submit-container">
-          <p>
-          <span class="light">Didn't receive a confirmation email?</span>
-          <a href="/users/confirmation/new">Request a new one</a>.
-          </p>
-          </div>
-
-          </div>
+            <!-- Registrarse -->
+            <div id="registrarse">
+                <h1>Registrarse</h1>
+                <%= render "/devise/registrations/new" %>
+            </div>
         </div>
-        <!-- <div class="col-sm-7 brand-holder pull-left" >
-          <h1>
-          Leiros
-          </h1>
-          <img src="/Logo_Leiros_ICONO_AVATAR.jpg" alt="Logo leiros icono avatar">
-          <p dir="auto">Repositorio de código </p>
-        </div> -->
-      </div>
     </div>
-  </div>
-</div>
-<hr class="footer-fixed">
-<div class="container footer-container">
-<div class="footer-links">
-<a href="/explore">Explore</a>
-<a href="/help">Help</a>
-<a href="https://about.gitlab.com/">About GitLab</a>
-</div>
-</div>
-</div>
-  <div class="jumbotron">
 
-  <% a = User.all %>
-  <p style="padding:19px; font-size: 16px;">Los usuarios disponibles son:</p>
-  <ul class="list-group">
 
-    <% a.each do |user| %>
-    <li class="list-group-item" style="padding: 19px;font-size: 16px;">
-      <%= user.email %>
-    </li>
-    <% end %>
-  </ul>
-  <br>
-  <br>
 
-</div>
-</div>
+
+<% a = User.all %>
+<p style="padding:19px; font-size: 16px;">Los usuarios disponibles son:</p>
+<ul class="list-group">
+
+  <% a.each do |user| %>
+  <li class="list-group-item" style="padding: 19px;font-size: 16px;">
+    <%= user.email %>
+  </li>
+  <% end %>
