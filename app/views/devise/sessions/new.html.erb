@@ -16,7 +16,7 @@
                   <br>
                   <div class="contenedor-input" >
                         <label>
-                            Usuario <span class="req">*</span>
+                            Correo electrónico <span class="req">*</span>
                         </label>
                     <%= f.email_field :email, autofocus: true, id: "user_email" %>
                   </div>
@@ -27,7 +27,7 @@
                     </label>
                   <%= f.password_field :password, autocomplete: "off"%>
                 </div>
-                  <p class="forgot"><a href="/users/password/new">Se te olvidó la contraseña?</a></p>
+                  <p class="forgot"><a href="/users/password/new">¿Se te olvidó la contraseña?</a></p>
                   <input type="submit" class="button button-block" value="Iniciar Sesión">
 
             <% end %>
