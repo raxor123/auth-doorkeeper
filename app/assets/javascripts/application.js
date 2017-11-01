@@ -31,6 +31,9 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
+$(".elearning").click(function(){
+    window.location.replace("http://localhost:3000");
+})
 $("label").addClass("active highlight");
 
     $(".tab a").on("click", function (e) {

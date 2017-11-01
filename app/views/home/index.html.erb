@@ -1,15 +1,39 @@
 <div class="text-center align-items-center justify-content-center">
   <ul class="list-group">
     <li class="list-group-item  list-group-item-success">
-      Sesion actualmente activa con  "<%= current_user.email %>"
     </li>
   </ul>
 </div>
-<br>
-<br>
-<br>
-<div class="text-center align-items-center justify-content-center">
-    <%= link_to "Ir al elearning", "http://localhost:3000" , class: "btn btn-primary", style: "margin-right: 5%"%>
 
-    <%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete , class: "btn btn-danger"%>
+<!-- Formularios -->
+<div class="contenedor-formularios">
+  <!-- Links de los formularios -->
+  <ul class="contenedor-tabs">
+    <li class="tab tab-segunda active elearning"><%= link_to "Ir al elearning", "http://localhost:3000" %></li>
+    <li class="tab tab-primera"><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %> </li>
+  </ul>
+
+  <!-- Contenido de los Formularios -->
+  <div class="contenido-tab">
+    <!-- Iniciar Sesion -->
+    <div id="iniciar-sesion">
+      <h3 style="color:white; text-align: center">
+        Sesión actualmente activa con:
+
+      </h3>
+      <br>
+      <br>
+
+      <h1 class="">
+        <%= current_user.email %>
+
+      </h1>
+    </div>
+
+    <!-- Registrarse -->
+    <div id="registrarse">
+      <h1>Registrarse</h1>
+
+    </div>
+  </div>
 </div>
